@@ -76,9 +76,9 @@ You can use `load_cubemap()` to load a cube map from a directory, like this
 
     ctx.cubemap = load_cubemap(cubemap_dir() + "/RomeChurch/");
 
-More cube maps can be found in the `assets/cubemap` folder. You should define the function `cubemap_dir()` similar to existing functions like `shader_dir()`, etc.
+More cube maps can be found in the `assets/cubemap` folder of the model viewer. You should define the function `cubemap_dir()` similar to existing functions like `shader_dir()`, etc.
 
-### Tasks for this part
+### Your tasks for this part
 
 - Extend your viewer so that it loads a single cubemap image.
 - In the draw function, select the active texture unit with `glActiveTexture()`, bind the cubemap texture to `GL_TEXTURE_CUBE_MAP` with `glBindTexture()`, and pass the number of the active texture unit (e.g., 0 for `GL_TEXTURE0`) as a uniform `int` variable (call it for example `u_cubemap`) to the shader program.
@@ -94,8 +94,6 @@ in the fragment shader and then, in the main() function, perform the texture loo
 
     vec3 color = texture(u_cubemap, R).rgb;
 
-
-### Your tasks for this part
 
 ## Part 3 - Texture mapping
 
