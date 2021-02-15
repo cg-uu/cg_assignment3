@@ -74,7 +74,7 @@ The cube maps folder contains several sets of cube maps, both the original unfil
 
 You can use `load_cubemap()` to load a cube map from a directory, like this 
 
-    ctx.cubemap = load_cubemap(cubemap_dir() + "/RomeChurch/");
+    ctx.cubemap = cg::load_cubemap(cubemap_dir() + "/RomeChurch/");
 
 More cube maps can be found in the `assets/cubemap` folder of the model viewer. You should define the function `cubemap_dir()` similar to existing functions like `shader_dir()`, etc.
 
