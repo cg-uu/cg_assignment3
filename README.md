@@ -99,7 +99,44 @@ in the fragment shader and then, in the main() function, perform the texture loo
 
 ![](images/part3.png)
 
-(TODO)
+The glTF format supports materials with textures for different material properties (base color, roughness, metallicness, etc.). In this part, we will add texture mapping to the viewer, and use these textures as additional input to the Blinn-Phong shading model when computing the lighting.
+
+A scene that has texture data (base color and bump map) is provided in the folder `assets/gltf` with this assignment. Copy the files of this folder to the corresponding folder in your model viewer, and load `lpshead.gltf` to look at the non-textured mesh.
+
+Enable the attribute for the first texture coordinate (`a_texcoord_0`), and try visualizing this coordinate in the fragment shader. The glTF format actually supports multiple texture coordinates per vertex, but for this assignment, you can assume that only the first one is used.
+
+2D images for material textures are automatically loaded with the scene. To create texture objects for these images, you need to call this after the scene has been loaded:
+
+    gltf::create_textures_from_gltf_asset(ctx.textures, ctx.asset);
+
+Information about what material textures a mesh is using is stored in the `gltf::Material` and `gltf::PBRMetallicRoughness` structs, which together define a material. Here is some example code how to access these structs per-object (or per-node) during rendering:
+
+    const gltf::Mesh &mesh = ctx.asset.meshes[node.mesh];
+    if (mesh.primitives[0].hasMaterial) {
+        const gltf::Primitive &primitive = mesh.primitives[0];
+        const gltf::Material &material = ctx.asset.materials[primitive.material];
+        const gltf::PBRMetallicRoughness &pbr = material.pbrMetallicRoughness;
+
+        // Define material textures and uniforms
+        // ...
+    }
+
+Similar to in the environment mapping in part 2, you need to bind texture objects to texture units, and define sampler uniforms for these. Note that material textures are just 2D images, so here we need to bind the textures to `GL_TEXTURE_2D` and use the `sampler2D` uniform type. You can get a texture ID from the material like this:
+
+    if (pbr.hasBaseColorTexture) {
+        GLuint texture_id = ctx.textures[pbr.baseColorTexture.index];
+        // Bind texture and define uniforms...
+    } else {
+        // Need to handle this case as well, by telling
+        // the shader that no texture is available
+    }
+
+### Your tasks for this part
+
+- Make it possible to visualize the texture coordinates of a mesh, by adding a checkbox for this in the GUI.
+- Add support for texture mapping in the viewer. When texture mapping is enabled and the model has texture data, it should be possible to obtain the material diffuse color from the base color texture when computing the lighting with normalized Blinn-Phong shading.
+- (Optional) Try implementing bump mapping using the material normal texture of `lpshead.gltf`. In one of the lectures from the course, you can find GLSL code for computing a tangent space in the fragment shader, which may be useful.
+- In addition, every other feature from parts 1 and 2 of this assignment must still be included in the final viewer for part 3.
 
 ## Part 4 - Shadow maps
 
