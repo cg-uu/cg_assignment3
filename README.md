@@ -105,7 +105,15 @@ A scene that has texture data (base color and bump map) is provided in the folde
 
 Enable the attribute for the first texture coordinate (`a_texcoord_0`), and try visualizing this coordinate in the fragment shader. The glTF format actually supports multiple texture coordinates per vertex, but for this assignment, you can assume that only the first one is used.
 
-2D images for material textures are automatically loaded with the scene. To create texture objects for these images, you need to call this after the scene has been loaded:
+2D images for material textures are automatically loaded with the scene. To create texture objects for these images, you need to add a list for the texture objects to the Context struct,
+
+    struct Context {
+        // ...
+        gltf::TextureList textures;
+        // ...
+    };
+
+and call the following function after the scene has been loaded:
 
     gltf::create_textures_from_gltf_asset(ctx.textures, ctx.asset);
 
