@@ -146,6 +146,13 @@ Similar to in the environment mapping in part 2, you need to bind texture object
 - (Optional) Try implementing bump mapping using the material normal texture of `lpshead.gltf`. In one of the lectures from the course, you can find GLSL code for computing a tangent space in the fragment shader, which may be useful.
 - In addition, every other feature from parts 1 and 2 of this assignment must still be included in the final viewer for part 3.
 
-## Part 4 - Shadow maps
+## Part 4 - Shadow mapping
 
-(TODO)
+![](images/part4.png)
+
+In this final part, you will implement the technique [shadow mapping](https://en.wikipedia.org/wiki/Shadow_mapping) to allow the point light source in your model viewer to cast shadows on the rendered scene. Some sample code and more detailed instructions for this part are found [here](part4/README.md).
+
+### Your tasks for this part
+
+- Follow these [instructions](part4/README.md) and implement shadow mapping in the model viewer. If you have more than one point light source, only one of them need to be shadow casting and have a shadow map.
+- Extend the GUI so that it is possible to toggle shadow mapping on/off, change the position of the light source, and change the shadow bias parameter. For debugging, it can also be useful to have a checkbox for showing a depth visualization of the scene from the light's viewpoint (like in the left image above)
