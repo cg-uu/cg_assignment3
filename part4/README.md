@@ -1,4 +1,4 @@
-# Part 4 - Shadow mapping (1TD388/1MD150)
+# Part 4 - Shadow mapping (1TD388)
 
 ![](images/gargo_shadowmapping.png)
 
