@@ -146,7 +146,7 @@ Similar to in the environment mapping in part 2, you need to bind texture object
 - (Optional) Try implementing bump mapping using the material normal texture of `lpshead.gltf`. In one of the lectures from the course, you can find GLSL code for computing a tangent space in the fragment shader, which may be useful.
 - In addition, every other feature from parts 1 and 2 of this assignment must still be included in the final viewer for part 3.
 
-## Part 4 - Shadow mapping
+## Part 4 - Shadow mapping (only for 1TD388)
 
 ![](images/part4.png)
 
