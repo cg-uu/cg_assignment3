@@ -1,8 +1,6 @@
 # Assignment 3 - Lighting, texturing, and shadows (1TD388/1MD150)
 
-We will now improve the lighting from the previous assignment, by introducing the normalized Blinn-Phong shading model and replacing per-vertex lighting calculations with per-fragment calculations. You will also add image-based lighting (environment mapping) and shadows to the scene, and load textured models.
-
-For parts 3 and 4 of this exercise, you need to update some files of the glTF viewer, since the latest version on https://github.com/cg-uu/gltf_viewer provides code for reading material textures and creating depth framebuffers for shadow maps. If you cloned the repo earlier, you could just pull the changes (make sure you take a backup of `model_viewer.cpp` first, so that you do not accidentaly overwrite anything you did in assignment 2!). Otherwise, download the latest version as a zip-file and copy the files `cg_utils.h/cpp, gltf_io.h/cpp, gltf_scene.h/cpp, and gltf_render.h/cpp` to the `src` folder.
+In this assignment, you will continue to extend the glTF model viewer from https://github.com/cg-uu/gltf_viewer. We will now improve the lighting from the previous assignment, by introducing the normalized Blinn-Phong shading model and replacing per-vertex lighting calculations with per-fragment calculations. You will also add image-based lighting (environment mapping) and shadows to the scene, and load textured models.
 
 The deadline for the assignment and further instructions about what parts and files you need hand in to pass are available on the course page in Studium.
 
